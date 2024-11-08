@@ -3,7 +3,7 @@
 using namespace std;
 int main(){
     char palavra[20], letra[1], secreta[20];
-    int tamanho_palavra, i , chances=6, acertos;
+    int tamanho_palavra=0, i=0 , chances=6, acertos=0;
     bool acerto = false;
     cout << "Digite a palavra secreta: ";
     cin >> palavra;
@@ -16,6 +16,8 @@ int main(){
     for (i = 0; i<30; i++){
         secreta[i] = '_';
     }
+    
+    cout << "Comecando o jogo...";
     system("cls");
 
     //loop principal
@@ -32,10 +34,9 @@ int main(){
                 secreta[i] = palavra[i];
                 acertos ++;
             }
-            else{
-                cout << "Voce errou a letra";
-            }
         }
+        cout << "voce errou a letra" << "\n";
+        chances --;
 
     }
     if (tamanho_palavra == acertos){
