@@ -18,6 +18,7 @@ int main(){
     }
     
     cout << "Comecando o jogo...";
+    cout << tamanho_palavra;
     system("cls");
 
     //loop principal
@@ -33,17 +34,22 @@ int main(){
             if(palavra[i] == letra[0]){
                 secreta[i] = palavra[i];
                 acertos ++;
+                acerto = true;
             }
-        }
-        cout << "voce errou a letra" << "\n";
-        chances --;
 
+        }
+        if(!acerto){
+            cout << "nao contem essa letra na palavra " << "\n";
+            chances --;
+        }
+        acerto = false;
+
+        
     }
     if (tamanho_palavra == acertos){
         cout << "parabens voce ganhou";
         return 0;
     }
-
     cout << "voce perdeu, que pena";
     return 0;
 }
