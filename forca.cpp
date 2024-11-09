@@ -2,7 +2,7 @@
 #include <stdlib.h>
 using namespace std;
 int main(){
-    char palavra[20], letra[1], secreta[20];
+    char palavra[20], letra, secreta[20];
     int tamanho_palavra=0, i=0 , chances=6, acertos=0;
     bool acerto = false;
     cout << "Digite a palavra secreta: ";
@@ -13,12 +13,11 @@ int main(){
         tamanho_palavra++;
     }
 
-    for (i = 0; i<30; i++){
+    for (i = 0; i<tamanho_palavra; i++){
         secreta[i] = '_';
     }
     
-    cout << "Comecando o jogo...";
-    cout << tamanho_palavra;
+    cout << "Comecando o jogo...\n";
     system("cls");
 
     //loop principal
@@ -29,9 +28,10 @@ int main(){
             cout << secreta[i];
         }
         cout << "Digite uma letra: ";
-        cin >> letra[0];
+        cin >> letra;
+        acerto = false;
         for(i=0; i<tamanho_palavra; i++){
-            if(palavra[i] == letra[0]){
+            if(palavra[i] == letra){
                 secreta[i] = palavra[i];
                 acertos ++;
                 acerto = true;
